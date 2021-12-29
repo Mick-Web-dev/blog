@@ -1,0 +1,21 @@
+{
+    "name": "micka/blog",
+    "description": "blog professionnel",
+    "require": {
+        "composer": "^2.2",
+        "guzzlehttp/psr7": "^1.8",
+        "twig/twig": "^1.42",
+        "twitter/bootstrap": "^5.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Micka\\Blog\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "mickael",
+            "email": "mickael.hesliere@gmail.com"
+        }
+    ]
+}
