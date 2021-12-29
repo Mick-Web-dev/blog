@@ -1,8 +1,8 @@
 <?php
+require('views/View.php');
+
 class ControllerAccueil
 {
-    private $_postManager;
-    private $_view;
 
     /**
      * @throws Exception
@@ -18,13 +18,15 @@ class ControllerAccueil
     /**
      * @return void
      * Récupère l'ensemble des posts
+     * @throws Exception
      */
     private function posts()
     {
-        $this->_postManager = new PostManager;
-        $posts = $this->_postManager->getPosts();
+        $_postManager = new PostManager;
+        $posts = $_postManager->getPosts();
 
-        require_once ('views/viewAccueil.php');
+        $_view = new View('Accueil');
+        $_view->generate(array('posts' => $posts));
     }
 
 }

@@ -1,0 +1,6 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST8FILENAME} !-f
+RewriteCond %{REQUEST8FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php?url=$1
