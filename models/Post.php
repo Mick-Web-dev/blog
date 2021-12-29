@@ -33,7 +33,7 @@ class Post
     }
 
     /**
-     * @param mixed $id
+     * @param mixed
      * Setters
      */
     public function setId($id)

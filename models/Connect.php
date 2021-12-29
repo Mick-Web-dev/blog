@@ -23,10 +23,15 @@ abstract class Connect
         return self::$_bdd;
     }
 
+    /**
+     * @param $table
+     * @param $obj
+     * @return array
+     */
     protected function getAll($table, $obj)
     {
         $var = [];
-        $req = self::$_bdd->prepare('SELECT * FROM' .$table. 'ORDER BY id desc');
+        $req = self::$_bdd->prepare('SELECT * FROM ' .$table. ' ORDER BY id desc');
         $req->execute();
         while ($data = $req->fetch(PDO::FETCH_ASSOC))
         {
