@@ -1,8 +1,10 @@
 <?php
-require('views/View.php');
+require_once('views/View.php');
 
 class ControllerAccueil
 {
+    private $_postManager;
+    private $_view;
 
     /**
      * @throws Exception
@@ -22,11 +24,11 @@ class ControllerAccueil
      */
     private function posts()
     {
-        $_postManager = new PostManager;
-        $posts = $_postManager->getPosts();
+        $this->_postManager = new PostManager;
+        $posts = $this->_postManager->getPosts();
 
-        $_view = new View('Accueil');
-        $_view->generate(array('posts' => $posts));
+        $this->_view = new View('Accueil');
+        $this->_view->generate(array('posts' => $posts));
     }
 
 }

@@ -12,7 +12,7 @@ class Router
              * Chargement automatique des classes
              */
             spl_autoload_register(function ($class){
-                require('models/'.$class.'.php');
+                require_once('models/'.$class.'.php');
             });
             $url = '';
             /**
@@ -37,7 +37,7 @@ class Router
             }
             else
             {
-                require('controllers/ControllerAccueil.php');
+                require_once('controllers/ControllerAccueil.php');
                 $this->_ctrl = new ControllerAccueil($url);
             }
         }
@@ -47,7 +47,7 @@ class Router
         catch (Exception $e)
         {
             $errorMsg = $e->getMessage();
-            require('views/viewError.php');
+            require_once('views/viewError.php');
         }
     }
 }

@@ -1,4 +1,4 @@
-RewriteEngine On
+RewriteEngine Off
 
 RewriteCond %{REQUEST8FILENAME} !-f
 RewriteCond %{REQUEST8FILENAME} !-d

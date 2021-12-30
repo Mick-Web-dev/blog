@@ -2,10 +2,10 @@
     "name": "micka/blog",
     "description": "blog professionnel",
     "require": {
-        "composer": "^2.2",
-        "guzzlehttp/psr7": "^1.8",
+        "composer": "2.2.1",
+        "twitter/bootstrap": "^5.1",
         "twig/twig": "^1.42",
-        "twitter/bootstrap": "^5.1"
+        "sensiolabs/insight": "^1.6"
     },
     "autoload": {
         "psr-4": {
