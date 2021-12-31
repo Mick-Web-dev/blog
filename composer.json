@@ -1,0 +1,17 @@
+{
+    "name": "micka/blog",
+    "description": "blog professionnel",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Micka\\Blog\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "mickael",
+            "email": "mickael.hesliere@gmail.com"
+        }
+    ],
+    "require": {}
+}
