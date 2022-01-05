@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <h1>Nos articles</h1>
+        <h1>Articles</h1>
 
         <div class="col col-10">
             <?php foreach ($post as $post) : ?>

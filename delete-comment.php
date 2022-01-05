@@ -1,10 +1,10 @@
 <?php
 
 /**
- * DANS CE FICHIER ON CHERCHE A SUPPRIMER LE COMMENTAIRE DONT L'ID EST PASSE EN PARAMETRE GET !
+ * DANS CE FICHIER ON CHERCHE À SUPPRIMER LE COMMENTAIRE DONT L'ID EST PASSE EN PARAMETRE GET !
  * 
- * On va donc vérifier que le paramètre "id" est bien présent en GET, qu'il correspond bien à un commentaire existant
- * Puis on le supprimera !
+ * Vérification du paramètre "id" présent en GET et correspondance avec le commentaire
+ * Puis suppression
  */
 
 /**
@@ -19,11 +19,9 @@ $id = $_GET['id'];
 
 /**
  * 2. Connexion à la base de données avec PDO
- * Attention, on précise ici deux options :
- * - Le mode d'erreur : le mode exception permet à PDO de nous prévenir violament quand on fait une connerie ;-)
+ * Gestion des erreurs :
+ * - Le mode d'erreur : le mode exception permet à PDO de nous prévenir
  * - Le mode d'exploitation : FETCH_ASSOC veut dire qu'on exploitera les données sous la forme de tableaux associatifs
- * 
- * PS : Vous remarquez que ce sont les mêmes lignes que pour l'index.php ?!
  */
 $pdo = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '', [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -41,7 +39,7 @@ if ($query->rowCount() === 0) {
 
 /**
  * 4. Suppression réelle du commentaire
- * On récupère l'identifiant de l'article avant de supprimer le commentaire
+ * Récupération de l'identifiant du post avant de supprimer le commentaire
  */
 
 $commentaire = $query->fetch();
@@ -51,7 +49,7 @@ $query = $pdo->prepare('DELETE FROM commentaires WHERE id = :id');
 $query->execute(['id' => $id]);
 
 /**
- * 5. Redirection vers l'article en question
+ * 5. Redirection vers le post
  */
 header("Location: post.php?id=" . $post_id);
 exit();

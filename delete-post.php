@@ -1,14 +1,14 @@
 <?php
 
 /**
- * DANS CE FICHIER, ON CHERCHE A SUPPRIMER L'ARTICLE DONT L'ID EST PASSE EN GET
+ * DANS CE FICHIER, ON CHERCHE À SUPPRIMER LE POST DONT L'ID EST PASSE EN GET
  * 
- * Il va donc falloir bien s'assurer qu'un paramètre "id" est bien passé en GET, puis que cet article existe bel et bien
- * Ensuite, on va pouvoir effectivement supprimer l'article et rediriger vers la page d'accueil
+ * On s'assure qu'un paramètre "id" est bien passé en GET et que le post existe
+ * Puis suppression du post et redirection vers la page d'accueil
  */
 
 /**
- * 1. On vérifie que le GET possède bien un paramètre "id" (delete.php?id=202) et que c'est bien un nombre
+ * 1. Vérification que le GET possède bien un paramètre "id"
  */
 if (empty($_GET['id']) || !ctype_digit($_GET['id'])) {
     die("Ho ?! Tu n'as pas précisé l'id de l'article !");
@@ -18,11 +18,9 @@ $id = $_GET['id'];
 
 /**
  * 2. Connexion à la base de données avec PDO
- * Attention, on précise ici deux options :
- * - Le mode d'erreur : le mode exception permet à PDO de nous prévenir violament quand on fait une connerie ;-)
+ * Gestion des erreurs :
+ * - Le mode d'erreur : le mode exception permet à PDO de nous prévenir
  * - Le mode d'exploitation : FETCH_ASSOC veut dire qu'on exploitera les données sous la forme de tableaux associatifs
- * 
- * PS : Vous remarquez que ce sont les mêmes lignes que pour l'index.php ?!
  */
 $pdo = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '', [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -30,7 +28,7 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '', [
 ]);
 
 /**
- * 3. Vérification que l'article existe bel et bien
+ * 3. Vérification que le post existe
  */
 $query = $pdo->prepare('SELECT * FROM posts WHERE id = :id');
 $query->execute(['id' => $id]);
@@ -39,7 +37,7 @@ if ($query->rowCount() === 0) {
 }
 
 /**
- * 4. Réelle suppression de l'article
+ * 4. Suppression de l'article
  */
 $query = $pdo->prepare('DELETE FROM posts WHERE id = :id');
 $query->execute(['id' => $id]);

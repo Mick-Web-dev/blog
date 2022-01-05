@@ -3,14 +3,14 @@
 /**
  * CE FICHIER A POUR BUT D'AFFICHER LA PAGE D'ACCUEIL !
  * 
- * On va donc se connecter à la base de données, récupérer les posts du plus récent au plus ancien (SELECT * FROM posts ORDER BY created_at DESC)
- * puis on va boucler dessus pour afficher chacun d'entre eux
+ * Connection à la base de données, récupération des posts du plus récent au plus ancien
+ * puis boucle pour afficher chaque post
  */
 
 /**
  * 1. Connexion à la base de données avec PDO
- * Attention, on précise ici deux options :
- * - Le mode d'erreur : le mode exception permet à PDO de nous prévenir violament quand on fait une connerie ;-)
+ * Gestion des erreurs :
+ * - Le mode d'erreur : le mode exception permet à PDO de nous prévenir
  * - Le mode d'exploitation : FETCH_ASSOC veut dire qu'on exploitera les données sous la forme de tableaux associatifs
  */
 $pdo = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '', [
@@ -21,9 +21,9 @@ $pdo = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '', [
 /**
  * 2. Récupération des posts
  */
-// On utilisera ici la méthode query (pas besoin de préparation car aucune variable n'entre en jeu)
+// Utilisation de la méthode query (pas besoin de préparation car aucune variable n'entre en jeu)
 $resultats = $pdo->query('SELECT * FROM posts ORDER BY date DESC');
-// On fouille le résultat pour en extraire les données réelles
+// trie pour extraire les données réelles
 $post = $resultats->fetchAll();
 
 /**
