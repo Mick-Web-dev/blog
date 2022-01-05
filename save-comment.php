@@ -12,6 +12,7 @@
  * Puis on redirige l'utilisateur vers le post.
  */
 require_once('libraries/database.php');
+require_once ('libraries/utils.php');
 /**
  * 1. On vérifie que les données ont bien été envoyées en POST
  * D'abord, on récupère les informations à partir du POST
@@ -56,13 +57,12 @@ $query->execute(['post_id' => $post_id]);
 
 // Si rien n'est revenu, on fait une erreur
 if ($query->rowCount() === 0) {
-    die("Ho ! L'article $post_id n'existe pas boloss !");
+    die("Ho ! L'article $post_id n'existe pas !");
 }
 
 // 3. Insertion du commentaire
 $query = $pdo->prepare('INSERT INTO commentaires SET auteur = :auteur, commentaire = :commentaire, post_id = :post_id, date = NOW()');
 $query->execute(compact('auteur', 'commentaire', 'post_id'));
 
-// 4. Redirection vers le post en question :
-header('Location: post.php?id=' . $post_id);
-exit();
+// 4. Redirection vers le post  :
+redirect("post.php?id=" . $post_id);

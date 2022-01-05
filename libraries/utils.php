@@ -19,5 +19,11 @@ function render(string $path, array $variables = [])
     $pageContent = ob_get_clean();
 
     require('templates/layout.html.php');
+}
 
+function redirect(string $url): void
+{
+    //ex-> redirect('index.php')
+    header("Location: $url" );
+    exit();
 }

@@ -7,6 +7,7 @@
  * Puis suppression
  */
 require_once('libraries/database.php');
+require_once('libraries/utils.php');
 /**
  * 1. Récupération du paramètre "id" en GET
  */
@@ -46,7 +47,6 @@ $query = $pdo->prepare('DELETE FROM commentaires WHERE id = :id');
 $query->execute(['id' => $id]);
 
 /**
- * 5. Redirection vers le post
+ * 5. Redirection vers le post :
  */
-header("Location: post.php?id=" . $post_id);
-exit();
+redirect("post.php?id=" . $post_id);

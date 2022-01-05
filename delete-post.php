@@ -7,6 +7,7 @@
  * Puis suppression du post et redirection vers la page d'accueil
  */
 require_once('libraries/database.php');
+require_once('libraries/utils.php');
 /**
  * 1. Vérification que le GET possède bien un paramètre "id"
  */
@@ -40,7 +41,6 @@ $query = $pdo->prepare('DELETE FROM posts WHERE id = :id');
 $query->execute(['id' => $id]);
 
 /**
- * 5. Redirection vers la page d'accueil
+ * 5. Redirection vers la page d'accueil :
  */
-header("Location: index.php");
-exit();
+redirect("index.php");
