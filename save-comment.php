@@ -52,17 +52,15 @@ if (!$auteur || !$post_id || !$commentaire) {
  */
 $pdo = getPdo();
 
-$query = $pdo->prepare('SELECT * FROM posts WHERE id = :post_id');
-$query->execute(['post_id' => $post_id]);
+$post = findPost($post_id);
 
 // Si rien n'est revenu, on fait une erreur
-if ($query->rowCount() === 0) {
+if (!$post) {
     die("Ho ! L'article $post_id n'existe pas !");
 }
 
 // 3. Insertion du commentaire
-$query = $pdo->prepare('INSERT INTO commentaires SET auteur = :auteur, commentaire = :commentaire, post_id = :post_id, date = NOW()');
-$query->execute(compact('auteur', 'commentaire', 'post_id'));
+insertComment($auteur, $commentaire, $post_id);
 
 // 4. Redirection vers le post  :
 redirect("post.php?id=" . $post_id);

@@ -18,27 +18,17 @@ if (empty($_GET['id']) || !ctype_digit($_GET['id'])) {
 $id = $_GET['id'];
 
 /**
- * 2. Connexion à la base de données avec PDO
- * Gestion des erreurs :
- * - Le mode d'erreur : le mode exception permet à PDO de nous prévenir
- * - Le mode d'exploitation : FETCH_ASSOC veut dire qu'on exploitera les données sous la forme de tableaux associatifs
- */
-$pdo = getPdo();
-
-/**
  * 3. Vérification que le post existe
  */
-$query = $pdo->prepare('SELECT * FROM posts WHERE id = :id');
-$query->execute(['id' => $id]);
-if ($query->rowCount() === 0) {
+$post = findPost($id);
+if (!$post) {
     die("L'article $id n'existe pas, vous ne pouvez donc pas le supprimer !");
 }
 
 /**
  * 4. Suppression de l'article
  */
-$query = $pdo->prepare('DELETE FROM posts WHERE id = :id');
-$query->execute(['id' => $id]);
+deletePost($id);
 
 /**
  * 5. Redirection vers la page d'accueil :

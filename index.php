@@ -8,24 +8,14 @@
  */
 require_once('libraries/database.php');
 require_once('libraries/utils.php');
-/**
- * 1. Connexion à la base de données avec PDO
- * Gestion des erreurs :
- * - Le mode d'erreur : le mode exception permet à PDO de nous prévenir
- * - Le mode d'exploitation : FETCH_ASSOC veut dire qu'on exploitera les données sous la forme de tableaux associatifs
- */
-$pdo = getPdo();
 
 /**
- * 2. Récupération des posts
+ * 1. Récupération des posts
  */
-// Utilisation de la méthode query (pas besoin de préparation car aucune variable n'entre en jeu)
-$resultats = $pdo->query('SELECT * FROM posts ORDER BY date DESC');
-// trie pour extraire les données réelles
-$posts = $resultats->fetchAll();
+$posts = findAllPosts();
 
 /**
- * 3. Affichage
+ * 2. Affichage
  */
 $pageTitle = "Accueil";
 render('posts/index', compact('pageTitle', 'posts'));

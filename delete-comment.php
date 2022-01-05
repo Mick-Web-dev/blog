@@ -29,9 +29,8 @@ $pdo = getPdo();
 /**
  * 3. Vérification de l'existence du commentaire
  */
-$query = $pdo->prepare('SELECT * FROM commentaires WHERE id = :id');
-$query->execute(['id' => $id]);
-if ($query->rowCount() === 0) {
+$commentaire = findComment($id);
+if (!$commentaire) {
     die("Aucun commentaire n'a l'identifiant $id !");
 }
 
@@ -39,12 +38,8 @@ if ($query->rowCount() === 0) {
  * 4. Suppression réelle du commentaire
  * Récupération de l'identifiant du post avant de supprimer le commentaire
  */
-
-$commentaire = $query->fetch();
 $post_id = $commentaire['post_id'];
-
-$query = $pdo->prepare('DELETE FROM commentaires WHERE id = :id');
-$query->execute(['id' => $id]);
+deleteComment($id);
 
 /**
  * 5. Redirection vers le post :

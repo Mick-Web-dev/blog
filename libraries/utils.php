@@ -21,6 +21,10 @@ function render(string $path, array $variables = [])
     require('templates/layout.html.php');
 }
 
+/**
+ * @param string $url
+ * @return void
+ */
 function redirect(string $url): void
 {
     //ex-> redirect('index.php')

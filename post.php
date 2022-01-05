@@ -28,32 +28,14 @@ if (!$post_id) {
 }
 
 /**
- * 2. Connexion à la base de données avec PDO
- * Gestion des erreurs :
- * - Le mode d'erreur : le mode exception permet à PDO de nous prévenir
- * - Le mode d'exploitation : FETCH_ASSOC veut dire qu'on exploitera les données sous la forme de tableaux associatifs
- */
-$pdo = getPdo();
-
-/**
  * 3. Récupération du post en question
- * On utilise une requête préparée tout en se protégeant des injections sql
  */
-$query = $pdo->prepare("SELECT * FROM posts WHERE id = :post_id");
-
-// On exécute la requête en précisant le paramètre :article_id 
-$query->execute(['post_id' => $post_id]);
-
-// On trie le résultat pour extraire les données réelles du post
-$post = $query->fetch();
+$post = findPost($post_id);
 
 /**
  * 4. Récupération des commentaires du post en question
- * Requête préparée pour sécuriser la donnée fournie par l'utilisateur
  */
-$query = $pdo->prepare("SELECT * FROM commentaires WHERE post_id = :post_id");
-$query->execute(['post_id' => $post_id]);
-$commentaires = $query->fetchAll();
+$commentaires = findAllComments($post_id);
 
 /**
  * 5. On affiche 
