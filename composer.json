@@ -4,7 +4,8 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Micka\\Blog\\": "src/"
+            "Micka\\Blog\\": "src/",
+            "\\Blog\\Controllers\\": " "
         }
     },
     "authors": [
@@ -13,5 +14,9 @@
             "email": "mickael.hesliere@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "twitter/bootstrap": "^5.1",
+      "ext-pdo": "*"
+    },
+    "optimize-autoloader": true
 }
