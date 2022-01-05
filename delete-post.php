@@ -6,7 +6,7 @@
  * On s'assure qu'un paramètre "id" est bien passé en GET et que le post existe
  * Puis suppression du post et redirection vers la page d'accueil
  */
-
+require_once('libraries/database.php');
 /**
  * 1. Vérification que le GET possède bien un paramètre "id"
  */
@@ -22,10 +22,7 @@ $id = $_GET['id'];
  * - Le mode d'erreur : le mode exception permet à PDO de nous prévenir
  * - Le mode d'exploitation : FETCH_ASSOC veut dire qu'on exploitera les données sous la forme de tableaux associatifs
  */
-$pdo = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '', [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-]);
+$pdo = getPdo();
 
 /**
  * 3. Vérification que le post existe

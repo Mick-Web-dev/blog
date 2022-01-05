@@ -11,7 +11,7 @@
  * On fait donc une première requête et si le post existe alors on intègre le commentaire.
  * Puis on redirige l'utilisateur vers le post.
  */
-
+require_once('libraries/database.php');
 /**
  * 1. On vérifie que les données ont bien été envoyées en POST
  * D'abord, on récupère les informations à partir du POST
@@ -49,10 +49,7 @@ if (!$auteur || !$post_id || !$commentaire) {
  * - Le mode d'erreur : le mode exception permet à PDO de nous prévenir en cas d'erreur
  * - Le mode d'exploitation : FETCH_ASSOC veut dire qu'on exploitera les données sous la forme de tableaux associatifs
  */
-$pdo = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '', [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-]);
+$pdo = getPdo();
 
 $query = $pdo->prepare('SELECT * FROM posts WHERE id = :post_id');
 $query->execute(['post_id' => $post_id]);

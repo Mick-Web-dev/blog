@@ -1,9 +1,11 @@
 <div class="container">
     <div class="row">
-        <h1>Articles</h1>
+        <h1 class="text-center text-warning">Articles</h1>
+        <hr>
+        <br>
 
         <div class="col col-10">
-            <?php foreach ($post as $post) : ?>
+            <?php foreach ($posts as $post) : ?>
                 <h2><?= $post['titre'] ?></h2>
                 <small>Ecrit le <?= $post['date'] ?></small><br>
                 <p><?= $post['chapo'] ?></p>

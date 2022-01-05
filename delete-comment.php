@@ -6,7 +6,7 @@
  * Vérification du paramètre "id" présent en GET et correspondance avec le commentaire
  * Puis suppression
  */
-
+require_once('libraries/database.php');
 /**
  * 1. Récupération du paramètre "id" en GET
  */
@@ -23,10 +23,7 @@ $id = $_GET['id'];
  * - Le mode d'erreur : le mode exception permet à PDO de nous prévenir
  * - Le mode d'exploitation : FETCH_ASSOC veut dire qu'on exploitera les données sous la forme de tableaux associatifs
  */
-$pdo = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '', [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-]);
+$pdo = getPdo();
 
 /**
  * 3. Vérification de l'existence du commentaire

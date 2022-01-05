@@ -1,0 +1,9 @@
+//TODO Utiliser les cas d'utilisation pour imaginer le retour des fonctions nécessaires aux issues
+
+// TODO Factoriser les portions de code récurrent et commun à tous les fichiers
+// TODO adopter une architecture MVC
+// TODO intégrer un thème bootstrap
+// TODO réfléchir à la personnalisation du thème par une petite charte graphique
+// TODO Ajouter le moteur de templating TWIG
+
+// TODO Réfléchir et construire la partie administrative du site pour la gestion des posts et des commentaires ainsi que du contenu
