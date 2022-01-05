@@ -7,6 +7,7 @@
  * puis boucle pour afficher chaque post
  */
 require_once('libraries/database.php');
+require_once('libraries/utils.php');
 /**
  * 1. Connexion à la base de données avec PDO
  * Gestion des erreurs :
@@ -27,8 +28,10 @@ $posts = $resultats->fetchAll();
  * 3. Affichage
  */
 $pageTitle = "Accueil";
-ob_start();
-require('templates/posts/index.html.php');
-$pageContent = ob_get_clean();
+render('posts/index', compact('pageTitle', 'posts'));
 
-require('templates/layout.html.php');
+/* Fonction compact, identique à :
+render('posts/index', ['pageTitle' => $pageTitle,
+    'posts' => $posts
+]);
+*/

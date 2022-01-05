@@ -9,6 +9,8 @@
  * On affiche le post puis ses commentaires
  */
 require_once('libraries/database.php');
+require_once('libraries/utils.php');
+
 /**
  * 1. Récupération et vérification du paramètre "id"
  */
@@ -57,8 +59,11 @@ $commentaires = $query->fetchAll();
  * 5. On affiche 
  */
 $pageTitle = $post['titre'];
-ob_start();
-require('templates/posts/show.html.php');
-$pageContent = ob_get_clean();
-
-require('templates/layout.html.php');
+render('posts/show', compact('pageTitle', 'post', 'commentaires', 'post_id'));
+/* Fonction compact, identique à :
+render('posts/show', ['pageTitle' => $pageTitle,
+    'post' => $post,
+    'commentaires' => $commentaires,
+    'post_id' => $post_id
+]);
+*/
