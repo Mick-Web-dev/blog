@@ -10,6 +10,11 @@
  */
 require_once('libraries/database.php');
 require_once('libraries/utils.php');
+require_once('libraries/models/Post.php');
+require_once('libraries/models/Comment.php');
+
+$postModel = new Post();
+$commentModel = new Comment();
 
 /**
  * 1. Récupération et vérification du paramètre "id"
@@ -30,12 +35,12 @@ if (!$post_id) {
 /**
  * 3. Récupération du post en question
  */
-$post = findPost($post_id);
+$post = $postModel->find($post_id);
 
 /**
  * 4. Récupération des commentaires du post en question
  */
-$commentaires = findAllComments($post_id);
+$commentaires = $commentModel->findAllThisPost($post_id);
 
 /**
  * 5. On affiche 

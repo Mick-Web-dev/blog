@@ -8,11 +8,15 @@
  */
 require_once('libraries/database.php');
 require_once('libraries/utils.php');
+require_once('libraries/models/Post.php');
+
+//Creation d'une nouvelle instance de la classe Post
+$model = new Post();
 
 /**
  * 1. Récupération des posts
  */
-$posts = findAllPosts();
+$posts = $model->findAll();
 
 /**
  * 2. Affichage

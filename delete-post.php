@@ -8,6 +8,10 @@
  */
 require_once('libraries/database.php');
 require_once('libraries/utils.php');
+require_once('libraries/models/Post.php');
+
+$postModel = new Post();
+
 /**
  * 1. Vérification que le GET possède bien un paramètre "id"
  */
@@ -20,7 +24,7 @@ $id = $_GET['id'];
 /**
  * 3. Vérification que le post existe
  */
-$post = findPost($id);
+$post = $postModel->find($id);
 if (!$post) {
     die("L'article $id n'existe pas, vous ne pouvez donc pas le supprimer !");
 }
@@ -28,7 +32,7 @@ if (!$post) {
 /**
  * 4. Suppression de l'article
  */
-deletePost($id);
+$postModel->delete($id);
 
 /**
  * 5. Redirection vers la page d'accueil :

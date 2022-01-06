@@ -13,6 +13,11 @@
  */
 require_once('libraries/database.php');
 require_once ('libraries/utils.php');
+require_once('libraries/models/Post.php');
+require_once('libraries/models/Comment.php');
+
+$postModel = new Post();
+$commentModel = new Comment();
 /**
  * 1. On vérifie que les données ont bien été envoyées en POST
  * D'abord, on récupère les informations à partir du POST
@@ -50,9 +55,8 @@ if (!$auteur || !$post_id || !$commentaire) {
  * - Le mode d'erreur : le mode exception permet à PDO de nous prévenir en cas d'erreur
  * - Le mode d'exploitation : FETCH_ASSOC veut dire qu'on exploitera les données sous la forme de tableaux associatifs
  */
-$pdo = getPdo();
 
-$post = findPost($post_id);
+$post = $postModel->find($post_id);
 
 // Si rien n'est revenu, on fait une erreur
 if (!$post) {
@@ -60,7 +64,7 @@ if (!$post) {
 }
 
 // 3. Insertion du commentaire
-insertComment($auteur, $commentaire, $post_id);
+$commentModel->insert($auteur, $commentaire, $post_id);
 
 // 4. Redirection vers le post  :
 redirect("post.php?id=" . $post_id);
