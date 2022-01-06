@@ -15,7 +15,7 @@
             <div class="col p-sm-4">
                 <img src="././images/avartar-webdev47.png" alt="avatar" width="10%" class="m-sm-auto">
                <div class="row m-lg-auto">
-                   <h1><a href="#" class="text-dark text-decoration-none">Mickael Hesliere</a></h1>
+                   <h1><a href="index.php" class="text-dark text-decoration-none">Mickael Hesliere</a></h1>
                    <h4 class="font-monospace text-light">Développeur Web</h4>
                    <p><i>"Mes objectifs : être utile et se dépasser chaque jour pour vos projets !"</i></p>
                </div>

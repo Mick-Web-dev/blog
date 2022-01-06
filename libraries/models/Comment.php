@@ -5,6 +5,8 @@ require_once('libraries/models/Model.php');
 //Regroupe toutes les fonctions qui servent à manipuler les commentaires
 class Comment extends Model
 {
+    //Appelle la fonction find() du model mais ici la table commentaire
+    protected $table = "commentaires";
 
     /**
      * Retourne la liste de tous les commentaires
@@ -19,34 +21,6 @@ class Comment extends Model
         $commentaires = $query->fetchAll();
 
         return $commentaires;
-    }
-
-    /**
-     * Retourne un commentaire par son id
-     * @param int $id
-     * @return mixed
-     */
-    public function find(int $id)
-    {
-
-        $query = $this->pdo->prepare('SELECT * FROM commentaires WHERE id = :id');
-        $query->execute(['id' => $id]);
-        $comment = $query->fetch();
-
-        return $comment;
-
-    }
-
-    /**
-     * Supprime un commentaire par son id
-     * @param int $id
-     * @return void
-     */
-    public function delete(int $id): void
-    {
-
-        $query = $this->pdo->prepare('DELETE FROM commentaires WHERE id = :id');
-        $query->execute(['id' => $id]);
     }
 
     /**
