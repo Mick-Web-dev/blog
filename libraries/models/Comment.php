@@ -1,6 +1,5 @@
 <?php
 namespace Models;
-require_once('libraries/models/Model.php');
 
 //Regroupe toutes les fonctions qui servent à manipuler les commentaires
 class Comment extends Model

@@ -8,7 +8,7 @@
  * à la base de données et récupère les commentaires du plus ancien au plus récent.
  * On affiche le post puis ses commentaires
  */
-require_once('libraries/controllers/Post.php');
+require_once('libraries/autoload.php');
 
 $controller = new \Controllers\Post();
 $controller->show();

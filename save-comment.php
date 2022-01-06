@@ -11,7 +11,7 @@
  * On fait donc une première requête et si le post existe alors on intègre le commentaire.
  * Puis on redirige l'utilisateur vers le post.
  */
-require_once('libraries/controllers/Comment.php');
+require_once('libraries/autoload.php');
 
 $controller = new \Controllers\Comment();
 $controller->insert();

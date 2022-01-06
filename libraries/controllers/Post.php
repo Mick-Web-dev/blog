@@ -2,9 +2,6 @@
 namespace Controllers;
 
 require_once('libraries/utils.php');
-require_once('libraries/controllers/Controller.php');
-require_once('libraries/models/Post.php');
-require_once('libraries/models/Comment.php');
 
 class Post extends Controller
 {

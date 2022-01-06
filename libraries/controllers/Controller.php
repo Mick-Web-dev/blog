@@ -1,7 +1,6 @@
 <?php
 namespace Controllers;
 
-use mysql_xdevapi\Collection;
 
 abstract class Controller
 {
