@@ -1,7 +1,7 @@
 <?php
-
+namespace Models;
 require_once('libraries/database.php');
-class Model
+abstract class Model
 {
     // Cette function représente la connexion à la Bdd !
     protected $pdo;
@@ -28,6 +28,26 @@ class Model
         $item = $query->fetch();
 
         return $item;
+    }
+
+    /**
+     * Retourne la liste des posts classés par date de création
+     * @return array
+     */
+    public function findAll(?string $order = ""): array
+    {
+        $sql = "SELECT * FROM {$this->table}";
+        // si je reçois qqchose dans la variable $order alors ...
+        if ($order) {
+            // on rajoute à la variable $sql l'ordre ORDER BY la trace inclue dans $order
+            $sql .= " ORDER BY " . $order;
+        }
+        // Utilisation de la méthode query (pas besoin de préparation, car aucune variable n'entre en jeu)
+        $resultats = $this->pdo->query($sql);
+        // trie pour extraire les données réelles
+        $post = $resultats->fetchAll();
+
+        return $post;
     }
 
     /**

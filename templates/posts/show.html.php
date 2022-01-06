@@ -27,7 +27,14 @@
     <div class="form-group align-items-center">
         <form action="save-comment.php" method="POST" class="form-control">
             <h4>Vous voulez réagir ? N'hésitez pas !</h4><br>
-            <input type="text" name="auteur" placeholder="Votre pseudo !" class="form-control"><br>
+
+            <input type="text" name="auteur" placeholder="Votre pseudo !" class="form-control">
+            <!--
+            <?=
+            //TODO ->ICI IL FAUT PRÉVOIR DE RENSEIGNER LE PSEUDO DE L'UTILISATEUR CONNECTE
+            $user['speudo']
+            ?>
+            --><br>
             <textarea name="commentaire" id="" cols="30" rows="3" placeholder="Votre commentaire ..." class="form-control"></textarea><br>
             <input type="hidden" name="post_id" value="<?= $post_id ?>" class="form-control"><br>
             <button class="btn btn-success">Commenter !</button>
