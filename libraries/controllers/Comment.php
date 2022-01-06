@@ -3,6 +3,8 @@ namespace Controllers;
 
 
 
+use Http;
+
 class Comment extends Controller
 {
     protected $modelName = \Models\Comment::class;  // ou "\Models\Comment"
@@ -61,7 +63,7 @@ class Comment extends Controller
         $this->model->insert($auteur, $commentaire, $post_id);
 
 // 4. Redirection vers le post  :
-       \Http::redirect("post.php?id=" . $post_id);
+       Http::redirect("index.php?controller=post&task=show&id=" . $post_id);
     }
 
     //Action : Suppression d'un commentaire
@@ -102,6 +104,6 @@ class Comment extends Controller
         /**
          * 5. Redirection vers le post :
          */
-        \Http::redirect("post.php?id=" . $post_id);
+        Http::redirect("index.php?controller=post&task=show&id=" . $post_id);
     }
 }

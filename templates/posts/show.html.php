@@ -17,7 +17,7 @@
             <blockquote class="border m2 p-lg-3 bg-secondary">
                 <em><?= $commentaire['commentaire'] ?></em>
             </blockquote>
-            <button class="btn btn-danger"><a href="delete-comment.php?id=<?= $commentaire['id'] ?>" onclick="return window.confirm(`Êtes vous sûr de vouloir supprimer ce commentaire ?!`)" class="m-3 text-light">Supprimer</a></button>
+            <button class="btn btn-danger"><a href="index.php?controller=comment&task=delete&id=<?= $commentaire['id'] ?>" onclick="return window.confirm(`Êtes vous sûr de vouloir supprimer ce commentaire ?!`)" class="m-3 text-light">Supprimer</a></button>
             <hr>
         <?php endforeach ?>
     <?php endif ?>
@@ -25,14 +25,14 @@
 
 <div class="container">
     <div class="form-group align-items-center">
-        <form action="save-comment.php" method="POST" class="form-control">
+        <form action="index.php?controller=comment&task=insert" method="POST" class="form-control">
             <h4>Vous voulez réagir ? N'hésitez pas !</h4><br>
 
             <input type="text" name="auteur" placeholder="Votre pseudo !" class="form-control">
             <!--
             <?=
             //TODO ->ICI IL FAUT PRÉVOIR DE RENSEIGNER LE PSEUDO DE L'UTILISATEUR CONNECTE
-            $user['speudo']
+            $user['pseudo']
             ?>
             --><br>
             <textarea name="commentaire" id="" cols="30" rows="3" placeholder="Votre commentaire ..." class="form-control"></textarea><br>

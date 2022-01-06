@@ -8,6 +8,6 @@
  */
 //require_once('libraries/controllers/Post.php');
 require_once('libraries/autoload.php');
-
-$controller = new \Controllers\Post();
-$controller->index();
+\Application::process();
+//$controller = new \Controllers\Post();
+//$controller->index();

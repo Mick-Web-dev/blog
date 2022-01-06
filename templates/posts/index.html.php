@@ -9,8 +9,8 @@
                 <h2><?= $post['titre'] ?></h2>
                 <small>Ecrit le <?= $post['date'] ?></small><br>
                 <p><?= $post['chapo'] ?></p>
-                <a href="post.php?id=<?= $post['id'] ?>">Lire la suite</a>
-                <a href="delete-post.php?id=<?= $post['id'] ?>" onclick="return window.confirm(`Êtes vous sur de vouloir supprimer cet article ?!`)">Supprimer</a>
+                <a href="index.php?controller=post&task=show&id=<?= $post['id'] ?>">Lire la suite</a>
+                <a href="index.php?controller=post&task=delete&id=<?= $post['id'] ?>" onclick="return window.confirm(`Êtes vous sur de vouloir supprimer cet article ?!`)">Supprimer</a>
                 <br>
                 <hr>
             <?php endforeach ?>
