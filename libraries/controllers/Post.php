@@ -1,8 +1,6 @@
 <?php
 namespace Controllers;
 
-require_once('libraries/utils.php');
-
 class Post extends Controller
 {
   protected $modelName = \Models\Post::class;  // ou "\Models\Post"
@@ -19,7 +17,7 @@ class Post extends Controller
          * 2. Affichage
          */
         $pageTitle = "Accueil";
-        render('posts/index', compact('pageTitle', 'posts'));
+        \Renderer::render('posts/index', compact('pageTitle', 'posts'));
 
     }
 
@@ -58,7 +56,7 @@ class Post extends Controller
          * 5. On affiche
          */
         $pageTitle = $post['titre'];
-        render('posts/show', compact('pageTitle', 'post', 'commentaires', 'post_id'));
+        \Renderer::render('posts/show', compact('pageTitle', 'post', 'commentaires', 'post_id'));
 
     }
 
@@ -89,6 +87,6 @@ class Post extends Controller
         /**
          * 5. Redirection vers la page d'accueil :
          */
-        redirect("index.php");
+        \Http::redirect("index.php");
     }
 }

@@ -1,7 +1,7 @@
 <?php
 namespace Controllers;
 
-require_once ('libraries/utils.php');
+
 
 class Comment extends Controller
 {
@@ -61,7 +61,7 @@ class Comment extends Controller
         $this->model->insert($auteur, $commentaire, $post_id);
 
 // 4. Redirection vers le post  :
-        redirect("post.php?id=" . $post_id);
+       \Http::redirect("post.php?id=" . $post_id);
     }
 
     //Action : Suppression d'un commentaire
@@ -102,6 +102,6 @@ class Comment extends Controller
         /**
          * 5. Redirection vers le post :
          */
-        redirect("post.php?id=" . $post_id);
+        \Http::redirect("post.php?id=" . $post_id);
     }
 }

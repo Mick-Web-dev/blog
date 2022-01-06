@@ -1,6 +1,6 @@
 <?php
 namespace Models;
-require_once('libraries/database.php');
+
 abstract class Model
 {
     // Cette function représente la connexion à la Bdd !
@@ -9,7 +9,7 @@ abstract class Model
     //Contructeur
     public function __construct()
     {
-        $this->pdo =getPdo();
+        $this->pdo = \Database::getPdo();
     }
 
     /**
