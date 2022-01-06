@@ -2,16 +2,12 @@
 namespace Controllers;
 
 require_once ('libraries/utils.php');
+require_once('libraries/controllers/Controller.php');
 require_once('libraries/models/Post.php');
 require_once('libraries/models/Comment.php');
-class Comment
+class Comment extends Controller
 {
-    protected $model;
-
-    public function __construct()
-    {
-        $this->model = new \Models\Comment();
-    }
+    protected $modelName = \Models\Comment::class;  // ou "\Models\Comment"
 
     //Action : Insertion d'un commentaire
     public function insert()

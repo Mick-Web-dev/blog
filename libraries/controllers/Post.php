@@ -2,17 +2,13 @@
 namespace Controllers;
 
 require_once('libraries/utils.php');
+require_once('libraries/controllers/Controller.php');
 require_once('libraries/models/Post.php');
 require_once('libraries/models/Comment.php');
 
-class Post
+class Post extends Controller
 {
-    protected $model;
-
-    public function __construct()
-    {
-        $this->model = new \Models\Post();
-    }
+  protected $modelName = \Models\Post::class;  // ou "\Models\Post"
 
     public function index() {
         //Montrer la liste
