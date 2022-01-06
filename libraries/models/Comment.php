@@ -1,9 +1,11 @@
 <?php
 
-require_once('libraries/database.php');
+require_once('libraries/models/Model.php');
 
 //Regroupe toutes les fonctions qui servent à manipuler les commentaires
-class Comment {
+class Comment extends Model
+{
+
     /**
      * Retourne la liste de tous les commentaires
      * @param int $post_id
@@ -11,8 +13,8 @@ class Comment {
      */
     public function findAllThisPost(int $post_id): array
     {
-        $pdo = getPdo();
-        $query = $pdo->prepare("SELECT * FROM commentaires WHERE post_id = :post_id");
+
+        $query = $this->pdo->prepare("SELECT * FROM commentaires WHERE post_id = :post_id");
         $query->execute(['post_id' => $post_id]);
         $commentaires = $query->fetchAll();
 
@@ -26,8 +28,8 @@ class Comment {
      */
     public function find(int $id)
     {
-        $pdo = getPdo();
-        $query = $pdo->prepare('SELECT * FROM commentaires WHERE id = :id');
+
+        $query = $this->pdo->prepare('SELECT * FROM commentaires WHERE id = :id');
         $query->execute(['id' => $id]);
         $comment = $query->fetch();
 
@@ -42,8 +44,8 @@ class Comment {
      */
     public function delete(int $id): void
     {
-        $pdo = getPdo();
-        $query = $pdo->prepare('DELETE FROM commentaires WHERE id = :id');
+
+        $query = $this->pdo->prepare('DELETE FROM commentaires WHERE id = :id');
         $query->execute(['id' => $id]);
     }
 
@@ -57,8 +59,8 @@ class Comment {
      */
     public function insert(string $auteur, string $commentaire, int $post_id): void
     {
-        $pdo = getPdo();
-        $query = $pdo->prepare('INSERT INTO commentaires SET auteur = :auteur, commentaire = :commentaire, post_id = :post_id, date = NOW()');
+
+        $query = $this->pdo->prepare('INSERT INTO commentaires SET auteur = :auteur, commentaire = :commentaire, post_id = :post_id, date = NOW()');
         $query->execute(compact('auteur', 'commentaire', 'post_id'));
     }
 
