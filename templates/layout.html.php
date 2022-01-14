@@ -21,10 +21,10 @@
                </div>
             </div>
             <div class="d-flex flex-row bd-highlight justify-content-end">
-               <a href="#" class="text-warning text-decoration-none m-3"><b>Projets</b></a>
-                <a href="#" class="text-warning text-decoration-none m-3"><b>CV</b></a>
-                <a href="#" class="text-warning text-decoration-none m-3"><b>contact</b></a>
-               <a href="#" class="text-warning text-decoration-none m-3"><b>Mentions légales</b></a>
+               <a href="index.php?controller=projets&task=show&id" class="text-warning text-decoration-none m-3"><b>Projets</b></a>
+                <a href="index.php?controller=cv&task=show" class="text-warning text-decoration-none m-3"><b>CV</b></a>
+                <a href="index.php?controller=contact&task=insert"" class="text-warning text-decoration-none m-3"><b>contact</b></a>
+               <a href="index.php?controller=mentions&task=show" class="text-warning text-decoration-none m-3"><b>Mentions légales</b></a>
             </div>
         </div>
     </header>
@@ -49,8 +49,8 @@
                     <h4 class="text-center">Participer et échanger :</h4>
                 </div>
                 <div class="row text-center">
-                    <p><a href="#" class="text-dark"><b>S'inscrire</b></a></p>
-                    <p><a href="#" class="text-dark"><b>Se connecter</b></a></p>
+                    <p><a href="index.php?controller=registration&task=register" class="text-dark"><b>S'inscrire</b></a></p>
+                    <p><a href="index.php?controller=connexion&task=insert" class="text-dark"><b>Se connecter</b></a></p>
                 </div>
             </div>
         </div>

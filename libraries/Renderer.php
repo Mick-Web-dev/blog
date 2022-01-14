@@ -6,7 +6,7 @@ class Renderer {
      * @param array $variables
      * @return void
      */
-    public static function render(string $path, array $variables = [])
+    public static  function render(string $path, array $variables = [])
     {
         // ex->['post' => ..., 'var2' => "mickael"] -> $post = ...
         // ->Transformer les données du tableau associatif en véritables variables => fonction extract

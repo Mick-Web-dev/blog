@@ -1,3 +1,5 @@
+<!--CONTENU DU POST SELECTIONNE-->
+
 <div class="row-cols-10 ">
     <h1><?= $post['titre'] ?></h1>
     <p class="text-secondary mb-4"><small ><b>Ecrit le <?= $post['date'] ?></b></small></p>
@@ -6,6 +8,8 @@
     <hr>
     <?= $post['contenu'] ?><br>
     <hr>
+
+<!--LISTE DES COMMENTAIRES PRECEDENTS-->
 
     <?php if (count($commentaires) === 0) : ?>
         <h4 class="text-secondary text-center m-5"><i>Il n'y a pas encore de commentaires pour cet article ... Soyez le premier ! </i></h4>
@@ -22,6 +26,8 @@
         <?php endforeach ?>
     <?php endif ?>
 </div>
+
+<!--ZONE D4INSERTION D'UN NOUVEAU COMMENTAIRE-->
 
 <div class="container">
     <div class="form-group align-items-center">

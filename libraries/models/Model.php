@@ -6,6 +6,7 @@ abstract class Model
     // Cette function représente la connexion à la Bdd !
     protected $pdo;
     protected $table;
+
     //Contructeur
     public function __construct()
     {

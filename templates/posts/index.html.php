@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <h1 class="text-center text-warning">Articles</h1>
+        <h1 class="text-center text-warning">Blog Posts</h1>
         <hr>
         <br>
 

@@ -1,8 +1,6 @@
 <?php
 namespace Controllers;
 
-
-
 use Http;
 
 class Comment extends Controller

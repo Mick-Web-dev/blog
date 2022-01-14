@@ -1,0 +1,16 @@
+<!--
+ici on veut afficher le CV et avoir un lien pour le télécharger au format pdf
+-->
+<!--LIEN DE TÉLÉCHARGEMENT-->
+
+<!--TITRE-->
+
+<!--METIER/FONCTIONS-->
+
+<!--FORMATION-->
+
+<!--COMPETENCES - VOIR SI IL FAUT RELIER A UNE TABLE POUR LES RENDRE DYNAMIQUES-->
+
+<!--EXPERIENCE-->
+
+<!--INFOS COMPLEMENTAIRES - LIEN VERS PROFILS SITES PROFESSIONNELS-->
