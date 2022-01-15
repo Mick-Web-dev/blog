@@ -20,7 +20,7 @@ class Contact extends Controller
 // L'auteur
         $nom = null;
         if (!empty($_POST['nom'])) {
-            $nom = $_POST['nom'];
+            $nom = htmlspecialchars($_POST['nom']);
         }
 
 // Le commentaire
@@ -33,12 +33,12 @@ class Contact extends Controller
 // L'id du commentaire
         $mail = null;
         if (!empty($_POST['mail']) && ctype_digit($_POST['mail'])) {
-            $maild = $_POST['mail'];
+            $mail = $_POST['mail'];
         }
 // L'id du commentaire
         $message = null;
         if (!empty($_POST['message']) && ctype_digit($_POST['message'])) {
-            $message = $_POST['message'];
+            $message = htmlspecialchars($_POST['message']);
         }
 
 // Vérification finale des infos envoyées dans le formulaire (donc dans le POST)

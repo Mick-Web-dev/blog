@@ -38,13 +38,11 @@ class Application {
                 $controllerName = "contact";
                 $task = "insert";
                 //gestion du controllerName
-
                 break;
 
             case 2 :
                 $controllerName = "connexion";
                 $task = "find";
-
                 break;
         }
 
