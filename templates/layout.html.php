@@ -24,7 +24,7 @@
                <a href="index.php?controller=projets&task=show&id" class="text-warning text-decoration-none m-3"><b>Projets</b></a>
                 <a href="index.php?controller=cv&task=show" class="text-warning text-decoration-none m-3"><b>CV</b></a>
                 <a href="index.php?controller=contact&task=create"" class="text-warning text-decoration-none m-3"><b>contact</b></a>
-               <a href="index.php?controller=mentions&task=show" class="text-warning text-decoration-none m-3"><b>Mentions légales</b></a>
+               <a href="index.php?controller=mentions&task=index" class="text-warning text-decoration-none m-3"><b>Mentions légales</b></a>
             </div>
         </div>
     </header>

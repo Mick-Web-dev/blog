@@ -44,7 +44,6 @@ class Contact extends Controller
             // On contrôle la saisie de l'utilisateur
             $message = htmlspecialchars($_POST['message']);
         }
-        var_dump($nom,$prenom, $mail,$message);
 // Vérification finale des infos envoyées dans le formulaire (donc dans le POST)
 // S'il n'y a pas d'auteur OU qu'il n'y a pas de commentaire OU qu'il n'y a pas d'identifiant d'article
         if (!$nom || !$prenom || !$mail || !$message) {
@@ -53,7 +52,6 @@ class Contact extends Controller
 
 // 2. Insertion du contact et de son message
         $this->model->insert($nom, $prenom, $mail, $message);
-        echo "Votre message à bien été transmis";
 
         /**
          * 3. Affichage
