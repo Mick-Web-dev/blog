@@ -76,14 +76,6 @@ class Comment extends Controller
 
         $id = $_GET['id'];
 
-
-        /**
-         * 2. Connexion à la base de données avec PDO
-         * Gestion des erreurs :
-         * - Le mode d'erreur : le mode exception permet à PDO de nous prévenir
-         * - Le mode d'exploitation : FETCH_ASSOC veut dire qu'on exploitera les données sous la forme de tableaux associatifs
-         */
-
         /**
          * 3. Vérification de l'existence du commentaire
          */
