@@ -11,12 +11,12 @@ adresse mail pour:
 -->
 <div class="container">
     <div class="form-group align-items-center">
-        <form action="index.php?controller=registration&task=insert" method="POST" class="form-control">
+        <form action="index.php?controller=register&task=insert" method="POST" class="form-control">
             <h4>Vous voulez commenter les articles du blog ? Inscrivez-vous !</h4><br>
 
-            <input type="text" name="pseudo" placeholder="Choisissez un pseudo !" class="form-control">
-            <input type="text" name="password" placeholder="Choisissez un MOT DE PASSE !" class="form-control">
-            <input type="text" name="auteur" placeholder="Saisissez votre mail !" class="form-control">
+            <input type="text" name="pseudo" id="pseudo" placeholder="Choisissez un pseudo !" class="form-control">
+            <input type="text" name="password" id="password" placeholder="Choisissez un MOT DE PASSE !" class="form-control">
+            <input type="text" name="mail" id="mail" placeholder="Saisissez votre mail !" class="form-control">
 
             <button class="btn btn-success" onclick="return window.confirm(`Vos informations sont-elles correctes ?`)">S'enregistrer</button>
         </form>

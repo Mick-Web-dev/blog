@@ -49,7 +49,7 @@
                     <h4 class="text-center">Participer et échanger :</h4>
                 </div>
                 <div class="row text-center">
-                    <p><a href="index.php?controller=registration&task=register" class="text-dark"><b>S'inscrire</b></a></p>
+                    <p><a href="index.php?controller=register&task=create" class="text-dark"><b>S'inscrire</b></a></p>
                     <p><a href="index.php?controller=connexion&task=insert" class="text-dark"><b>Se connecter</b></a></p>
                 </div>
             </div>
