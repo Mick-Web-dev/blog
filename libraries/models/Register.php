@@ -1,7 +1,7 @@
 <?php
 namespace Models;
 
-
+use Http;
 //Regroupe toutes les fonctions qui servent à manipuler les posts
 class Register extends Model
 {
@@ -10,18 +10,8 @@ class Register extends Model
 
     public function insert(string $pseudo, string $password,string $mail)
     {
-        if($mail>0)
-        {
-            $mail = false;
-            // l'utilisateur existe !
-            echo "Vos identifiants sont présents dans notre base de donnée, veuillez vous connecter ou 
-            les réinitialiser via l'option proposée sous le formulaire ";
-        }else {
-            $query = $this->pdo->prepare('INSERT INTO users SET  pseudo = :pseudo, password = :password, mail = :mail');
-            $query->execute(compact('pseudo', 'password', 'mail'));
-        }
-
-
+        // si les identifiants n'existent pas
+        $query = $this->pdo->prepare('INSERT INTO users SET  pseudo = :pseudo, password = :password, mail = :mail');
+        $query->execute(compact('pseudo', 'password', 'mail'));
     }
-
 }

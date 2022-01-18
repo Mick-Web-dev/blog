@@ -42,6 +42,8 @@ class Register extends Controller
             die("Votre formulaire a été mal rempli !");
         }
 
+
+
 // 2. Insertion du nouvel utilisateur
         $this->model->insert($pseudo, $password, $mail);
 
@@ -49,7 +51,7 @@ class Register extends Controller
          * 3. Affichage
          */
         $pageTitle = "Inscription";
-        Http::redirect("index.php?controller=connect&task=show&id=");
+        Http::redirect("index.php?controller=post&task=index");
     }
 
 }
