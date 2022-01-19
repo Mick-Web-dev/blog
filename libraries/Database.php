@@ -1,8 +1,8 @@
 <?php
-// Ce fichier concerne les fonctionnalités liées à la base de données
+
 class Database {
     private static $instance = null;
-    //1- Fonctionnalités servant de connexion à la bdd.
+
     /**
      * Retourne une connexion à la base de données
      * @return PDO

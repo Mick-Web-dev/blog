@@ -1,0 +1,91 @@
+Imaginer un switch de controller dans librairies->Application.php
+
+source : https://www.php.net/manual/fr/control-structures.switch.php
+definition : 
+L'instruction switch équivaut à une série d'instructions if.
+ En de nombreuses occasions, vous aurez besoin de comparer la même variable (ou expression) avec un grand nombre de valeurs différentes, et d'exécuter différentes parties de code suivant la valeur à laquelle elle est égale. 
+C'est exactement à cela que sert l'instruction switch.
+
+Note: Notez que contrairement à d'autres langages, la structure continue s'applique aux structures switch et se comporte de la même manière que break. Si vous avez un switch dans une boucle, et que vous souhaitez continuer jusqu'à la prochaine itération de la boucle extérieure, vous devez utiliser continue 2.
+
+Note:Notez que switch/case provoque une comparaison large.
+
+-------------------------------------------------------
+
+?php
+if ($i == 0) {
+    echo "i égal 0";
+} elseif ($i == 1) {
+    echo "i égal 1";
+} elseif ($i == 2) {
+    echo "i égal 2";
+}
+
+switch ($i) {
+    case 0:
+        echo "i égal 0";
+        break;
+    case 1:
+        echo "i égal 1";
+        break;
+    case 2:
+        echo "i égal 2";
+        break;
+}
+?>
+------------------------------------------------------------------------------------
+exemple raisonnement :
+-----------------------------------------------------------------------------------
+ https://stackoverflow.com/questions/14299014/switching-between-controllers-mvc
+-----------------------------------------------------------------------------------
+code: 
+
+class BaseController() {
+    function __construct() {
+        $this->model = new ModelFactory();
+        $this->view = new View();
+
+        if(isset($_SERVER['QUERY_STRING'])) {
+            list($controller, $action) = explode('=', $_SERVER['QUERY_STRING']);
+            self::process($controller);
+        }
+    }
+
+    public function process($controller) {
+        switch($controller) {
+            case 'user':
+                $user = new UserController($action);
+            break;
+
+            case 'forum':
+                $forum = new ForumController($action);
+            break;
+
+            default:
+                // use base controller
+                switch($action) {
+                    case 'contact':
+                        $this->view->load($action);
+                    break;
+                }
+        }
+    }
+}
+
+// inside UserController.php
+switch($action) {
+    case 'register':
+    break;
+
+    case 'login':
+    break;
+}
+
+// inside ForumController.php
+switch($action) {
+    case 'new_thread':
+    break;
+
+    case 'edit_post':
+    break;
+}
