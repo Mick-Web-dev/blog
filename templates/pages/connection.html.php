@@ -1,9 +1,8 @@
 <!--
 ici on veut permettre à l'utilisateur enregistré:
-de se connecter
-et en fonction de ses droits soit :
+de se connecter et en fonction de ses droits soit :
 - de commenter uniquement des posts
-- de creer, supprimer, ou mettre a jour des posts
+- de creer, supprimer ou mettre a jour des posts
 - de valider les commentaires en attentes
 - de supprimer un utilisateur
 - ....

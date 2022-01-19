@@ -7,6 +7,10 @@ class Contact extends Controller
 {
     protected $modelName = \Models\Contact::class;  // ou "\Models\Post"
 
+    //Ajout d'un nouveau contact
+    /**
+     * @return void
+     */
     public function create()
     {
         $contactModel = new \Models\Contact();
@@ -18,6 +22,10 @@ class Contact extends Controller
 
     }
 
+    // Contrôle des champs saisis
+    /**
+     * @return void
+     */
     public function insert(){
         // Le nom du contact
 
@@ -25,14 +33,14 @@ class Contact extends Controller
             $nom = $_POST['nom'];
         }
 
-// Le prenom
+        // Le prenom
 
         if (!empty($_POST['prenom'])) {
             // On contrôle la saisie de l'utilisateur
             $prenom = $_POST['prenom'];
         }
 
-// Le mail
+        // Le mail
 
         if (!empty($_POST['mail']) && filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
             $mail = $_POST['mail'];
@@ -44,20 +52,16 @@ class Contact extends Controller
             // On contrôle la saisie de l'utilisateur
             $message = htmlspecialchars($_POST['message']);
         }
-// Vérification finale des infos envoyées dans le formulaire (donc dans le POST)
-// S'il n'y a pas d'auteur OU qu'il n'y a pas de commentaire OU qu'il n'y a pas d'identifiant d'article
+        // Vérification finale des infos envoyées dans le formulaire (donc dans le POST)
         if (!$nom || !$prenom || !$mail || !$message) {
             die("Votre formulaire a été mal rempli !");
         }
 
-// 2. Insertion du contact et de son message
+        // Insertion du contact et de son message
         $this->model->insert($nom, $prenom, $mail, $message);
 
-        /**
-         * 3. Affichage
-         */
+        // Affichage
         $pageTitle = "Contact";
         Http::redirect("index.php?controller=post&task=index");
     }
-
 }

@@ -8,6 +8,9 @@ class Comment extends Controller
     protected $modelName = \Models\Comment::class;  // ou "\Models\Comment"
 
     //Action : Insertion d'un commentaire
+    /**
+     * @return void
+     */
     public function insert()
     {
 
@@ -65,6 +68,10 @@ class Comment extends Controller
     }
 
     //Action : Suppression d'un commentaire
+
+    /**
+     * @return void
+     */
     public function delete()
     {
         /**
@@ -77,7 +84,7 @@ class Comment extends Controller
         $id = $_GET['id'];
 
         /**
-         * 3. Vérification de l'existence du commentaire
+         * 2. Vérification de l'existence du commentaire
          */
         $commentaire = $this->model->find($id);
         if (!$commentaire) {
@@ -85,14 +92,14 @@ class Comment extends Controller
         }
 
         /**
-         * 4. Suppression réelle du commentaire
+         * 3. Suppression réelle du commentaire
          * Récupération de l'identifiant du post avant de supprimer le commentaire
          */
         $post_id = $commentaire['post_id'];
         $this->model->delete($id);
 
         /**
-         * 5. Redirection vers le post :
+         * 4. Redirection vers le post :
          */
         Http::redirect("index.php?controller=post&task=show&id=" . $post_id);
     }

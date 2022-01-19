@@ -7,9 +7,8 @@ class Cv extends Controller
 
     public function index() {
 
-        /**
-         * 2. Affichage
-         */
+        // Affichage
+
         $pageTitle = "CV";
         \Renderer::render('pages/cv', compact('pageTitle'));
 

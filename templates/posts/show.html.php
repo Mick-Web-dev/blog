@@ -3,7 +3,7 @@
 <div class="row-cols-10 ">
     <h1><?= $post['titre'] ?></h1>
     <p class="text-secondary mb-4"><small ><b>Ecrit le <?= $post['date'] ?></b></small></p>
-    <img src="<?= $post['image'] ?>" alt="<?= $post['alt'] ?>">
+
     <p><i><?= $post['chapo'] ?></i></p>
     <hr>
     <?= $post['contenu'] ?><br>

@@ -7,6 +7,9 @@ class Register extends Controller
 {
     protected $modelName = \Models\Register::class;  // ou "\Models\Post"
 
+    /**
+     * @return void
+     */
     public function create()
     {
         $registerModel = new \Models\Register();
@@ -16,6 +19,9 @@ class Register extends Controller
 
     }
 
+    /**
+     * @return void
+     */
     public function insert(){
         // Le pseudo de l'utilisateur
         $pseudo = null;
@@ -23,33 +29,30 @@ class Register extends Controller
             $pseudo = $_POST['pseudo'];
         }
 
-// Le mot de passe
+        // Le mot de passe
         $password = null;
         if (!empty($_POST['password'])) {
             // On contrôle la saisie de l'utilisateur
             $password = $_POST['password'];
         }
 
-// Le mail
+        // Le mail
         $mail = null;
         if (!empty($_POST['mail']) && filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
             $mail = $_POST['mail'];
         }
 
-// Vérification finale des infos envoyées dans le formulaire (donc dans le POST)
-// S'il n'y a pas d'auteur OU qu'il n'y a pas de commentaire OU qu'il n'y a pas d'identifiant d'article
+        // Vérification finale des infos envoyées dans le formulaire
         if (!$pseudo || !$password || !$mail) {
             die("Votre formulaire a été mal rempli !");
         }
 
 
 
-// 2. Insertion du nouvel utilisateur
+        // Insertion du nouvel utilisateur
         $this->model->insert($pseudo, $password, $mail);
 
-        /**
-         * 3. Affichage
-         */
+        // Affichage
         $pageTitle = "Inscription";
         Http::redirect("index.php?controller=post&task=index");
     }

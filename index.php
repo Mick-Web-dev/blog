@@ -1,7 +1,7 @@
 <?php
 
 // GESTION CENTRALISEE DE L'AFFICHAGE DE L'APPLICATION
-//require_once('libraries/controllers/Post.php');
+//ex: require_once('libraries/controllers/Post.php');
 require_once('libraries/autoload.php');
 
 // -> LIBRAIRIES -> Application.php

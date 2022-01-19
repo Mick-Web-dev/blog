@@ -5,88 +5,80 @@ class Post extends Controller
 {
   protected $modelName = \Models\Post::class;  // ou "\Models\Post"
 
+    /**
+     * @return void
+     */
     public function index() {
         //Montrer la liste
         //Creation d'une nouvelle instance de la classe Post
-        /**
-         * 1. Récupération des posts
-         */
+        // Récupération des posts
         $posts = $this->model->findAll("date DESC");
 
-        /**
-         * 2. Affichage
-         */
+        // Affichage
         $pageTitle = "Accueil";
         \Renderer::render('posts/index', compact('pageTitle', 'posts'));
 
     }
 
+    /**
+     * @return void
+     */
     public function show() {
-        //Montrer 1 element de la liste
-
+        //Montre 1 element de la liste
         $commentModel = new \Models\Comment();
 
-        /**
-         * 1. Récupération et vérification du paramètre "id"
-         */
-// On part du principe qu'on ne possède pas de param "id"
+        // Récupération et vérification du paramètre "id"
+        // On part du principe qu'on ne possède pas de param "id"
         $post_id = null;
 
-// Mais s'il y en a un et que c'est un nombre entier, alors on peut ...
+        // Mais s'il y en a un et que c'est un nombre entier, alors on peut ...
         if (!empty($_GET['id']) && ctype_digit($_GET['id'])) {
             $post_id = $_GET['id'];
         }
 
-// On peut décider d'une erreur ou non
+        // On peut décider d'une erreur ou non
         if (!$post_id) {
             die("Vous devez préciser un paramètre `id` dans l'URL !");
         }
 
-        /**
-         * 3. Récupération du post en question
-         */
+        // Récupération du post en question
+
         $post = $this->model->find($post_id);
 
-        /**
-         * 4. Récupération des commentaires du post en question
-         */
+        // Récupération des commentaires du post en question
         $commentaires = $commentModel->findAllThisPost($post_id);
 
-        /**
-         * 5. On affiche
-         */
+        // Affichage
         $pageTitle = $post['titre'];
         \Renderer::render('posts/show', compact('pageTitle', 'post', 'commentaires', 'post_id'));
 
     }
 
+    /**
+     * @return void
+     */
     public function delete() {
         //Supprimer 1 element
-        /**
-         * 1. Vérification que le GET possède bien un paramètre "id"
-         */
+        // Vérification que le GET possède bien un paramètre "id"
+
         if (empty($_GET['id']) || !ctype_digit($_GET['id'])) {
             die("Ho ?! Tu n'as pas précisé l'id de l'article !");
         }
 
         $id = $_GET['id'];
 
-        /**
-         * 3. Vérification que le post existe
-         */
+        // Vérification que le post existe
+
         $post = $this->model->find($id);
         if (!$post) {
             die("L'article $id n'existe pas, vous ne pouvez donc pas le supprimer !");
         }
 
-        /**
-         * 4. Suppression de l'article
-         */
+        // Suppression de l'article
+
         $this->model->delete($id);
 
-        /**
-         * 5. Redirection vers la page d'accueil :
-         */
+        // Redirection vers la page d'accueil :
         \Http::redirect("index.php");
     }
 }

@@ -4,10 +4,9 @@ adresse mail pour:
 - confirmer qu'il est a l'origine de l'action
 - récupérer ses identifiants de connexion
 
-//TODO ->IL FAUT PRÉVOIR QUE L'UTILISATEUR EXISTE EN BDD
-//si l'utilisateur existe alors un message l'informe que ses identifiants
-//sont présent dans la bdd et qu'il doit se connecter ou récupérer ses infos s'il
-//ne les a plus via un lien s'affichant après la soumission du formulaire
+TODO ->IL FAUT PRÉVOIR QUE L'UTILISATEUR EXISTE EN BDD
+si l'utilisateur existe alors un message l'informe que ses identifiants
+sont présent dans la bdd et qu'il doit se connecter ou récupérer ses infos
 -->
 <div class="container">
     <div class="form-group align-items-center">

@@ -8,7 +8,7 @@ class Renderer {
      */
     public static  function render(string $path, array $variables = [])
     {
-        // ex->['post' => ..., 'var2' => "mickael"] -> $post = ...
+        // ex->['post' => ..., 'var2' => "..."] -> $post = ...
         // ->Transformer les données du tableau associatif en véritables variables => fonction extract
         extract($variables);
         ob_start();

@@ -7,6 +7,9 @@ class Application {
     // Puis aboutir à une requete Http → index.php?controller=article&task=show&id=...
 
 
+    /**
+     * @return void
+     */
     public static function process()
     {
         $controllerName = "post";//post

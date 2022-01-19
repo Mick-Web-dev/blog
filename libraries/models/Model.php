@@ -3,7 +3,7 @@ namespace Models;
 
 abstract class Model
 {
-    // Cette function représente la connexion à la Bdd !
+    // Représente la connexion à la Bdd !
     protected $pdo;
     protected $table;
 
@@ -31,16 +31,15 @@ abstract class Model
         return $item;
     }
 
-    /**
-     * Retourne la liste des posts classés par date de création
+    /*
      * @return array
      */
     public function findAll(?string $order = ""): array
     {
         $sql = "SELECT * FROM {$this->table}";
-        // si je reçois qqchose dans la variable $order alors ...
+        // si la variable $order stock une data alors ...
         if ($order) {
-            // on rajoute à la variable $sql l'ordre ORDER BY la trace inclue dans $order
+            // on rajoute à la variable $sql, l'ordre ORDER BY, la trace inclue dans $order
             $sql .= " ORDER BY " . $order;
         }
         // Utilisation de la méthode query (pas besoin de préparation, car aucune variable n'entre en jeu)
