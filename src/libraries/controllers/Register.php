@@ -26,14 +26,14 @@ class Register extends Controller
         // Le pseudo de l'utilisateur
         $pseudo = null;
         if (!empty($_POST['pseudo'])) {
-            $pseudo = $_POST['pseudo'];
+            $pseudo = htmlspecialchars($_POST['pseudo']);
         }
 
         // Le mot de passe
         $password = null;
         if (!empty($_POST['password'])) {
             // On contrôle la saisie de l'utilisateur
-            $password = $_POST['password'];
+            $password = htmlspecialchars($_POST['password']);
         }
 
         // Le mail
@@ -47,14 +47,12 @@ class Register extends Controller
             die("Votre formulaire a été mal rempli !");
         }
 
-
-
-        // Insertion du nouvel utilisateur
+        // Insertion
         $this->model->insert($pseudo, $password, $mail);
-
         // Affichage
-        $pageTitle = "Inscription";
+        $pageTitle = "Accueil";
         Http::redirect("index.php?controller=post&task=index");
+
     }
 
 }
