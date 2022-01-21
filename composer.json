@@ -26,7 +26,8 @@
     "require": {
         "twitter/bootstrap": "^5.1",
         "ext-pdo": "*",
-        "fakerphp/faker": "^1.17"
+        "fakerphp/faker": "^1.17",
+      "ext-password": "*"
     },
     "optimize-autoloader": true
 }

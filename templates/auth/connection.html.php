@@ -9,8 +9,8 @@ de se connecter et en fonction de ses droits soit :
 -->
 <div class="container">
     <div class="form-group align-items-center">
-        <form action="index.php?controller=connection&task=find" method="POST" class="form-control">
-            <h4>Vous voulez commenter les articles du blog ? Inscrivez-vous !</h4><br>
+        <form action="index.php?controller=user&task=login" method="POST" class="form-control">
+            <h4>Bienvenue sur votre espace de connection !</h4><br>
 
             <input type="text" name="pseudo" placeholder="Saisissez un pseudo !" class="form-control">
             <input type="text" name="password" placeholder="Saississez un MOT DE PASSE !" class="form-control">

@@ -10,7 +10,7 @@ sont présent dans la bdd et qu'il doit se connecter ou récupérer ses infos
 -->
 <div class="container-fluid">
     <div class="form-group  p-4">
-        <form action="index.php?controller=register&task=insert" method="POST" class="form-control">
+        <form action="index.php?controller=user&task=create" method="POST" class="form-control">
             <h4>Vous voulez commenter les articles du blog ? Inscrivez-vous !</h4><br>
             <h6>Choisissez :</h6>
             <input type="text" name="pseudo" id="pseudo" placeholder="Un pseudo !" class="form-control m-2">
