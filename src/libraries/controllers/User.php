@@ -93,4 +93,33 @@ class User extends Controller
 
     }
 
+    public function auth(){
+        //verification des droits utilisateurs
+        if (!sset($user['role_admin'])){
+            $user = $user['role_user'];
+            // Connexion de l'utilisateur : Affichage
+            $pageTitle = "Accueil";
+            Http::redirect("index.php?controller=user&task=user");
+        } else {
+            $pageTitle = "Administration";
+            Http::redirect("index.php?controller=user&task=admin");
+        }
+    }
+
+    public function admin(){
+        $adminModel = new \Models\Users();
+
+        $pageTitle = "Administration";
+        \Renderer::render('auth/admin', compact('pageTitle', 'adminModel'));
+
+    }
+
+    public function user(){
+        $userModel = new \Models\Users();
+
+        $pageTitle = "Compte";
+        \Renderer::render('auth/user', compact('pageTitle', 'userModel'));
+
+    }
+
 }

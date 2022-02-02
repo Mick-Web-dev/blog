@@ -6,6 +6,7 @@ use PDO;
 class Users extends Model
 {
     protected $table = "users";
+    protected $user = [];
 
     public function insert(string $pseudo, string $password, string $mail)
     {
@@ -16,8 +17,9 @@ class Users extends Model
         // Ouverture de la session user arrêt de la session à la fermeture du navigateur
         session_start();
         // Stockage des informations user
-        $_SESSION["user"] = [
-            "pseudo" => $user["id"],
+
+        $_SESSION[$user] = [
+            'id' => ['id'],
             'role' => ['role']
         ];
     }
@@ -28,22 +30,25 @@ class Users extends Model
         $query->bindValue(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
         $query->execute();
         $user = $query->fetch();
-        var_dump($user);
+        //Verification de la présence de l'utilisateur en BDD en fonction de son role
+
         // L'utilisateur n'existe pas
         if (!$user){
             die("Vos informations n'existent pas, veuillez vous enregistrer !");
 
         } elseif
-            // L'utilisateur existe, verification du mot de passe
+            // si l'utilisateur existe, verification du mot de passe
         (!password_verify($_POST['password'], $user['password'])){
             die("L'une des informations saisies ne passe pas la validation !");
         }
+
+
         // Les informations sont correctes !
         // Ouverture de la session user arrêt de la session à la fermeture du navigateur
         session_start();
         // Stockage des informations user
-        $_SESSION["user"] = [
-            "pseudo" => $user["pseudo"],
+        $_SESSION[$user] = [
+            'id' => $user['id'],
             'role' => $user['role']
         ];
     }

@@ -26,6 +26,9 @@
                 <a href="index.php?controller=cv&task=index" class="text-warning text-decoration-none m-3"><b>CV</b></a>
                 <a href="index.php?controller=contact&task=create"" class="text-warning text-decoration-none m-3"><b>contact</b></a>
                <a href="index.php?controller=mentions&task=index" class="text-warning text-decoration-none m-3"><b>Mentions légales</b></a>
+                <?php if (isset($user['role_admin'])) : ?>
+                    <a href="index.php?controller=user&task=admin" class="text-warning text-decoration-none m-3"><b>Dashboard</b></a>
+                <?php endif; ?>
             </div>
         </div>
     </header>
