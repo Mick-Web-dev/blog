@@ -14,9 +14,12 @@ class Post extends Controller
         // Récupération des posts
         $posts = $this->model->findAll("date DESC");
 
-        // Affichage
+        // Message de bienvenue + Affichage
+//        if (isset($message)){
+//            $contentMessage = $message;
+//        }
         $pageTitle = "Accueil";
-        \Renderer::render('posts/index', compact('pageTitle', 'posts'));
+        \Renderer::render('posts/index', compact('pageTitle', 'posts'/*, 'contentMessage'*/));
 
     }
 

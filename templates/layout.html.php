@@ -1,3 +1,4 @@
+<?php session_start();  ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -11,7 +12,7 @@
 
 <body>
     <header class="border-bottom border-warning border-4">
-        <div class="row accordion-header bg-secondary">
+        <div class="row accordion-header bg-secondary shadow-lg">
             <div class="col p-sm-4">
                 <img src="././images/avartar-webdev47.png" alt="avatar" width="10%" class="m-sm-auto">
                <div class="row m-lg-auto">
@@ -28,7 +29,14 @@
             </div>
         </div>
     </header>
-    <div class="container">
+    <div class="container shadow-lg">
+       <div class="row text-primary">
+           <h6 class="text-end font-italic bg-warning text-light"><?php
+               if(isset($_SESSION['user']['pseudo'])) {
+                   echo " Bonjour " . $_SESSION['user']['pseudo'] .", bienvenue dans votre session";
+               }
+               ?></h6>
+       </div>
         <div class="card card-text mb-5 mt-5" >
             <?= $pageContent ?>
         </div>
@@ -49,8 +57,8 @@
                     <h4 class="text-center">Participer et échanger :</h4>
                 </div>
                 <div class="row text-center">
-                    <p><a href="index.php?controller=register&task=create" class="text-dark"><b>S'inscrire</b></a></p>
-                    <p><a href="index.php?controller=connexion&task=insert" class="text-dark"><b>Se connecter</b></a></p>
+                    <p><a href="index.php?controller=user&task=register" class="text-dark"><b>S'inscrire</b></a></p>
+                    <p><a href="index.php?controller=user&task=connect" class="text-dark"><b>Se connecter</b></a></p>
                 </div>
             </div>
         </div>

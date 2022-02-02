@@ -3,9 +3,18 @@
     "description": "blog professionnel",
     "type": "project",
     "autoload": {
+        "files": [
+            "src/libraries/autoload.php",
+            "src/libraries/Application.php",
+            "src/libraries/Database.php",
+            "src/libraries/Http.php",
+            "src/libraries/Renderer.php"
+        ],
         "psr-4": {
             "Micka\\Blog\\": "src/",
-            "\\Blog\\Controllers\\": " "
+            "\\Blog\\librairies\\": "src",
+            "\\Blog\\Controllers\\": "src/libraries/controllers",
+            "\\Blog\\Models\\": "src/libraries/models"
         }
     },
     "authors": [
@@ -16,7 +25,9 @@
     ],
     "require": {
         "twitter/bootstrap": "^5.1",
-      "ext-pdo": "*"
+        "ext-pdo": "*",
+        "fakerphp/faker": "^1.17",
+      "ext-password": "*"
     },
     "optimize-autoloader": true
 }
