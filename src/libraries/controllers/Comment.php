@@ -5,7 +5,7 @@ use Http;
 
 class Comment extends Controller
 {
-    protected $modelName = \Models\Comment::class;  // ou "\Models\Comment"
+    protected $modelName = \Blog\Models\Comment::class;  // ou "\Models\Comment"
 
     //Action : Insertion d'un commentaire
     /**
@@ -14,7 +14,7 @@ class Comment extends Controller
     public function insert()
     {
 
-        $postModel = new \Models\Post();
+        $postModel = new \Blog\Models\Post();
         /**
          * 1. On vérifie que les données ont bien été envoyées en POST
          * D'abord, on récupère les informations à partir du POST

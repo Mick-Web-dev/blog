@@ -5,14 +5,14 @@ use Http;
 
 class User extends Controller
 {
-    protected $modelName = \Models\Users::class;  // ou "\Models\Post"
+    protected $modelName = \Blog\Models\Users::class;  // ou "\Models\Post"
 
     /**
      * @return void
      */
     public function register()
     {
-        $registerModel = new \Models\Users();
+        $registerModel = new \Blog\Models\Users();
 
         $pageTitle = "Inscription";
         \Renderer::render('auth/registration', compact('pageTitle', 'registerModel'));
@@ -21,7 +21,7 @@ class User extends Controller
 
     public function connect()
     {
-        $connectModel = new \Models\Users();
+        $connectModel = new \Blog\Models\Users();
 
         $pageTitle = "Connexion";
         \Renderer::render('auth/connection', compact('pageTitle', 'connectModel'));
@@ -93,10 +93,10 @@ class User extends Controller
 
     }
 
-    public function auth(){
+    public function auth($user){
         //verification des droits utilisateurs
-        if (!sset($user['role_admin'])){
-            $user = $user['role_user'];
+        if (!isset($user['role_admin'])){
+            $user = ['role_user'];
             // Connexion de l'utilisateur : Affichage
             $pageTitle = "Accueil";
             Http::redirect("index.php?controller=user&task=user");
@@ -107,7 +107,7 @@ class User extends Controller
     }
 
     public function admin(){
-        $adminModel = new \Models\Users();
+        $adminModel = new \Blog\Models\Users();
 
         $pageTitle = "Administration";
         \Renderer::render('auth/admin', compact('pageTitle', 'adminModel'));
@@ -115,11 +115,16 @@ class User extends Controller
     }
 
     public function user(){
-        $userModel = new \Models\Users();
+        $userModel = new \Blog\Models\Users();
 
         $pageTitle = "Compte";
         \Renderer::render('auth/user', compact('pageTitle', 'userModel'));
 
+    }
+
+    public function errors(){
+        $pageTitle = "Erreurs";
+        Http::redirect("index.php?controller=errors&task=getMessage");
     }
 
 }

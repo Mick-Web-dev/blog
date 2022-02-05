@@ -5,11 +5,11 @@ use Http;
 
 class Errors extends Controller
 {
-    protected $modelName = \Models\Errors::class;  // ou "\Models\Post"
+    protected $modelName = \Blog\Models\Errors::class;
 
-    public function show()
+    public function getMessage()
     {
-        $errorsModel = new \Models\Register();
+        $errorsModel = $this->getMessage($message);
 
         $pageTitle = "Erreurs";
         \Renderer::render('pages/errors', compact('pageTitle', 'errorsModel'));

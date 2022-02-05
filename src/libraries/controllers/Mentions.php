@@ -4,7 +4,7 @@ namespace Controllers;
 class Mentions extends Controller
 {
      // ou "\Models\Post"
-    protected $modelName = \Models\Mentions::class;
+    protected $modelName = \Blog\Models\Mentions::class;
 
     public function index() {
         //Affichage
