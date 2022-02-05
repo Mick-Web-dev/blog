@@ -3,7 +3,7 @@ namespace Controllers;
 
 class Projects extends Controller
 {
-    protected $modelName = \Models\Project::class;  // ou "\Models\Post"
+    protected $modelName = \Blog\Models\Project::class;  // ou "\Models\Post"
 
     /**
      * @return void

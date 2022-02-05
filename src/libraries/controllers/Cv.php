@@ -3,7 +3,7 @@ namespace Controllers;
 
 class Cv extends Controller
 {
-    protected $modelName = \Models\Cv::class;
+    protected $modelName = \Blog\Models\Cv::class;
 
     public function index() {
 

@@ -3,7 +3,7 @@ namespace Controllers;
 
 class Post extends Controller
 {
-  protected $modelName = \Models\Post::class;  // ou "\Models\Post"
+  protected $modelName = \Blog\Models\Post::class;  // ou "\Models\Post"
 
     /**
      * @return void
@@ -28,7 +28,7 @@ class Post extends Controller
      */
     public function show() {
         //Montre 1 element de la liste
-        $commentModel = new \Models\Comment();
+        $commentModel = new \Blog\Models\Comment();
 
         // Récupération et vérification du paramètre "id"
         // On part du principe qu'on ne possède pas de param "id"

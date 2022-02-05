@@ -5,7 +5,7 @@ use Http;
 
 class Contact extends Controller
 {
-    protected $modelName = \Models\Contact::class;  // ou "\Models\Post"
+    protected $modelName = \Blog\Models\Contact::class;  // ou "\Models\Post"
 
     //Ajout d'un nouveau contact
     /**
@@ -13,7 +13,7 @@ class Contact extends Controller
      */
     public function create()
     {
-        $contactModel = new \Models\Contact();
+        $contactModel = new \Blog\Models\Contact();
 
 
 
